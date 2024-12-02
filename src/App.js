@@ -8,7 +8,7 @@ import clevertap from "clevertap-web-sdk"; // Import CleverTap
 function App() {
   useEffect(() => {
     // Initialize CleverTap only once
-    clevertap.init("R5K-486-ZW7Z"); // Replace with your Account ID
+    clevertap.init("account token here"); // Replace with your Account ID
     // Optionally set user profile here
   }, []); // Empty dependency array means this runs once when the component mounts
 
