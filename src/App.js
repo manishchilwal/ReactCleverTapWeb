@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import DisplayPage from "./pages/DisplayPage";
+import clevertap from "clevertap-web-sdk"; // Import CleverTap
 
 function App() {
+  useEffect(() => {
+    // Initialize CleverTap only once
+    clevertap.init("R5K-486-ZW7Z"); // Replace with your Account ID
+    // Optionally set user profile here
+  }, []); // Empty dependency array means this runs once when the component mounts
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/display" element={<DisplayPage />} />
+      </Routes>
+    </Router>
   );
 }
 
